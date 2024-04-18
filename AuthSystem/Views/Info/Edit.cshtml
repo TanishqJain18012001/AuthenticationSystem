@@ -1,0 +1,37 @@
+﻿@model AuthSystem.ViewModel.InfoViewModel
+
+@{
+    ViewData["Title"] = "Create Info";
+}
+
+<div class="container mt-5" style="border: 2px solid gray; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="text-center mb-4">
+                <h1 class="text-primary">EDIT PROFILE</h1>
+            </div>
+            <hr />
+            <form asp-action="Edit" asp-controller="Info" method="post">
+                <input type="hidden" asp-for="id" />
+                <input type="hidden" asp-for="CreatedDate" />
+                <input type="hidden" asp-for="UserId" />
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label"></label>
+                    <input type="text" asp-for="Title" class="form-control" placeholder="Enter Social Media Name">
+                    <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Url" class="form-label"></label>
+                    <input type="url" asp-for="Url" class="form-control" placeholder="Enter URL">
+                    <span class="text-danger" asp-validation-for="Url"></span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <!-- Change the color of the "Go Back" button to vibrant blue -->
+                    <a class="btn btn-primary" asp-action="Index" style="transform: scale(1); transition: transform 0.3s;"><i class="bi bi-arrow-left-square-fill"></i></a>
+                    <!-- Change the color of the "Save" button to deep green -->
+                    <button type="submit" class="btn btn-success" style="transform: scale(1); transition: transform 0.3s;"><i class="bi bi-file-earmark-check-fill"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
